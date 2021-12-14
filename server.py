@@ -12,6 +12,9 @@ def sniffer():
 def handler(x):
     global msg
     symbol = chr(x[IP].chksum % 256)
+    if(symbol == '\1'):
+        msg = ""
+        print("### new msg started ###")
     if(symbol != '\0' ):
         msg += symbol
     else:
